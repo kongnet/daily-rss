@@ -1,3 +1,12 @@
+## [1.0.3](https://github.com/kongnet/daily-rss/compare/v1.0.2...v1.0.3) (2023-01-16)
+
+
+### :sparkles:
+
+* rsshub抽象成一个函数 ([a128d60](https://github.com/kongnet/daily-rss/commit/a128d60f44e99a7507a294df1d114443e812f12f))
+
+
+
 ## [1.0.2](https://github.com/kongnet/daily-rss/compare/v1.0.1...v1.0.2) (2023-01-16)
 
 
