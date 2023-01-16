@@ -1,0 +1,26 @@
+{
+  "name": "daily-article",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
+    "push": "npm version patch && git push"
+  },
+  "author": "Kongnet",
+  "license": "MIT",
+  "dependencies": {
+    "conventional-changelog": "^3.1.25",
+    "meeko": "^1.8.298",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "cz-jt": "^0.1.11"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-jt"
+    }
+  }
+}
