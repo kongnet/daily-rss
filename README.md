@@ -1,2 +1,9 @@
-# daily-rss
-rss develop
+# Daily-rss
+
+### Step 步骤
+
+- 1. 获取待聚合网站列表
+- 2. 解析 RSS 数据
+- 3. 渲染(html md)
+- 4. 设置定时任务
+- 5. 配置网站显示前端数据

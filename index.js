@@ -1,86 +1,10 @@
 const convert = require('xml-js')
-const Config = require('./config')
 const $ = require('meeko')
 const fs = require('fs')
 
-const siteUrlMap = {
-  'Hacker News': 'https://hnrss.org/newest.jsonfeed?points=100',
-  V2EX: 'https://www.v2ex.com/index.xml',
-  Solidot: 'https://rsshub.app/solidot/linux',
-  ZNews: 'https://rsshub.app/zaobao/znews/china',
-  Dribbble: 'https://rsshub.app/dribbble/popular/week',
-  Github: 'https://rsshub.app/github/trending/daily/any/any',
-  'AP News': 'https://rsshub.app/apnews/topics/ap-top-news'
-}
-const parseAdapt = {
-  'Hacker News': async function (res) {
-    const items = (await res.json()).items
-    return items.map(x => {
-      return { title: x.title, link: x.url }
-    })
-  },
-  V2EX: async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).feed.entry
-    return items.map(x => {
-      return { title: x.title._text, link: x.link._attributes.href }
-    })
-  },
+const { baseConfig, siteUrlMap } = require('./config')
+const parseAdapt = require('./parseAdapt')
 
-  Solidot: async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).rss.channel.item
-    return items.map(x => {
-      return { title: x.title._cdata, link: x.link._text }
-    })
-  },
-  ZNews: async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).rss.channel.item
-    return items.map(x => {
-      return { title: x.title._cdata, link: x.link._text }
-    })
-  },
-  Dribbble: async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).rss.channel.item
-    return items.map(x => {
-      return { title: x.title._cdata, link: x.link._text }
-    })
-  },
-  Github: async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).rss.channel.item
-    return items.map(x => {
-      return { title: x.title._cdata, link: x.link._text }
-    })
-  },
-  'AP News': async function (res) {
-    const rst = convert.xml2json(await res.text(), {
-      compact: true,
-      spaces: 0
-    })
-    const items = JSON.parse(rst).rss.channel.item
-    return items.map(x => {
-      return { title: x.title._cdata, link: x.link._text }
-    })
-  }
-}
 async function fetchSite (url) {
   const res = await fetch(url, {
     headers: {
@@ -128,7 +52,7 @@ async function main () {
     }
 
     let htmlStr = $.tools.genTemp.genHtml('', rssList.join(''))
-    fs.writeFileSync(Config.outputFile, htmlStr)
+    fs.writeFileSync(baseConfig.outputFile, htmlStr)
     // const sourceName = 'solidot/linux'
     // const res = await fetchSite(siteUrlMap[sourceName])
     // const parseRst = await parseFeed(res, (source = sourceName))
