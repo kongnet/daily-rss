@@ -3,7 +3,8 @@ module.exports = {
     outputFile: 'rss-output.html'
   },
   siteUrlMap: {
-    星球快讯: 'https://rsshub.app/odaily/newsflash',
+    'bing' : 'https://rsshub.app/bing',
+    'odaily': 'https://rsshub.app/odaily/newsflash',
     'Hacker News': 'https://hnrss.org/newest.jsonfeed?points=100',
     V2EX: 'https://www.v2ex.com/index.xml',
     Solidot: 'https://rsshub.app/solidot/linux',

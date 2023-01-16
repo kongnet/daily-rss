@@ -6,11 +6,11 @@ const rsshubParse = async res => {
   })
   const items = JSON.parse(rst).rss.channel.item
   return items.map(x => {
-    return { title: x.title._cdata, link: x.link._text }
+    return { title: x.title._cdata, link: x.link._text, desc: x.description }
   })
 }
 module.exports = {
-  星球快讯: rsshubParse,
+  'odaily': rsshubParse,
   'Hacker News': async function (res) {
     const items = (await res.json()).items
     return items.map(x => {

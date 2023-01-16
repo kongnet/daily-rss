@@ -24,22 +24,36 @@ async function parseFeed (res, source = 'v2ex') {
   return await parseAdapt[source](res)
 }
 function renderFeed (feedList, sourceName = 'v2ex', renderType = 'html') {
+  if (renderType === 'html') {
+    return renderHtml(feedList, sourceName)
+  }else if (renderType === 'markdown') {
+    return renderMarkdown(feedList, sourceName)
+  }
+  return ''
+}
+
+async function renderMarkdown(feedList, sourceName) {
+
+}
+
+async function renderHtml(feedList, sourceName) {
   let dataArr = feedList.map(x => {
     return [`<a href="${x.link}">${x.title}</a>`]
   })
   let allStr = $.tools.genTemp.gridTable(
-    [
-      {
-        dataTitleArr: ['Title'],
-        dataArr: dataArr,
-        dataTitle: sourceName + ' ' + new Date().date2Str()
-      }
-    ],
-    'close',
-    true
+      [
+        {
+          dataTitleArr: ['Title'],
+          dataArr: dataArr,
+          dataTitle: sourceName + ' ' + new Date().date2Str()
+        }
+      ],
+      'close',
+      true
   )
   return allStr
 }
+
 async function main () {
   try {
     const rssList = []
