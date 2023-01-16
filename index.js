@@ -1,4 +1,3 @@
-const convert = require('xml-js')
 const $ = require('meeko')
 const fs = require('fs')
 
@@ -48,6 +47,7 @@ async function main () {
       const sourceName = i
       const res = await fetchSite(siteUrlMap[sourceName])
       const parseRst = await parseFeed(res, (source = sourceName))
+      console.log(sourceName, ',parse cpmplete.')
       rssList.push(renderFeed(parseRst, sourceName, (renderType = 'html')))
     }
 
