@@ -1,72 +1,71 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
-    <meta charset="UTF-8" />
-    <title>Docs</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="description" content="Description" />
-    <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
-    />
-    <link rel="stylesheet" href="./docsify/lib/themes/vue.css" />
-    <!-- CDN files for docsify-katex -->
-    <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
-    <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css"
-    />
+  <meta charset="UTF-8" />
+  <title>Docs</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description" />
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+  <link rel="stylesheet" href="./docsify/lib/themes/vue.css" />
+  <!-- CDN files for docsify-katex -->
+  <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" />
 </head>
+
 <body>
-<div data-app id="app">Please wait...</div>
-<script>
+  <div data-app id="app">Please wait...</div>
+  <script>
     window.$docsify = {
-        name: 'API Docs',
-        repo: 'https://github.com/kongnet',
-        loadSidebar: true,
-        loadNavbar: true,
-        coverpage: true,
-        autoHeader: true,
-        subMaxLevel: 3,
-        auto2top: true,
-        formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      name: '每日新闻',
+      repo: 'https://github.com/kongnet/daily-rss',
+      loadSidebar: true,
+      loadNavbar: true,
+      coverpage: true,
+      autoHeader: true,
+      maxLevel: 3,
+      subMaxLevel: 4,
+      auto2top: true,
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
 
-        // 完整配置参数
-        search: {
-            maxAge: 86400000, // 过期时间，单位毫秒，默认一天
-            paths: 'auto', // or 'auto'
-            placeholder: 'Type a keyword to search',
+      // 完整配置参数
+      search: {
+        maxAge: 86400000, // 过期时间，单位毫秒，默认一天
+        paths: 'auto', // or 'auto'
+        placeholder: '请输入关键字搜索',
 
-            // 支持本地化
-            placeholder: {
-                '/': 'Search'
-            },
-
-            noData: 'Not found...',
-
-            // 支持本地化
-            noData: {
-                '/': 'Cannot find the result'
-            },
-
-            // 搜索标题的最大程级, 1 - 6
-            depth: 6
+        // 支持本地化
+        placeholder: {
+          '/': '搜索'
         },
-        plugins: [
-            function (hook) {
-                hook.beforeEach(function (content) {
-                    return content.replace(/\>\>([\s\S]*?)\>\>/g, function (m, code) {
-                        return katex.renderToString(code)
-                    })
-                })
-            }
-        ]
+
+        noData: '没有找到...',
+
+        // 支持本地化
+        noData: {
+          '/': '找不到结果'
+        },
+
+        // 搜索标题的最大程级, 1 - 6
+        depth: 6
+      },
+      plugins: [
+        function (hook) {
+          hook.beforeEach(function (content) {
+            return content.replace(/\>\>([\s\S]*?)\>\>/g, function (m, code) {
+              return katex.renderToString(code)
+            })
+          })
+        }
+      ]
     }
-</script>
-<script src="./docsify/lib/docsify.min.js"></script>
-<script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
-<script src="./docsify/components/prism-bash.js"></script>
-<script src="./docsify/components/prism-json.js"></script>
-<script src="//cdn.jsdelivr.net/npm/docsify-katex@1.4.5/dist/docsify-katex.js"></script>
+  </script>
+  <script src="./docsify/lib/docsify.min.js"></script>
+  <script src="//unpkg.com/docsify/lib/plugins/search.js"></script>
+  <script src="./docsify/components/prism-bash.js"></script>
+  <script src="./docsify/components/prism-json.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-katex@1.4.5/dist/docsify-katex.js"></script>
 </body>
+
 </html>
