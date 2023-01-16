@@ -1,4 +1,4 @@
-# Daily-rss
+# Daily-RSS
 
 ### Intro 简介
 
