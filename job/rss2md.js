@@ -13,7 +13,7 @@ const sidebarTemplatePath = `${docsifyPath}_sidebar_template.md`
 
 async function getBing() {
     const res = await fetchSite('https://rsshub.app/bing')
-    const rst = convert.xml2json(await res, {
+    const rst = convert.xml2json(await res.text(), {
         compact: true,
         spaces: 0
     })
