@@ -1,6 +1,6 @@
 const convert = require('xml-js')
 const rsshubParse = async res => {
-  const rst = convert.xml2json(res, {
+  const rst = convert.xml2json(await res.text(), {
     compact: true,
     spaces: 0
   })
@@ -12,13 +12,13 @@ const rsshubParse = async res => {
 module.exports = {
   'odaily': rsshubParse,
   'Hacker News': async function (res) {
-    const items = res.items
+    const items = (await res.json()).items
     return items.map(x => {
       return { title: x.title, link: x.url, desc: x.content_html }
     })
   },
   V2EX: async function (res) {
-    const rst = convert.xml2json(res, {
+    const rst = convert.xml2json(await res.text(), {
       compact: true,
       spaces: 0
     })
