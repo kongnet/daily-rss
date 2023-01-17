@@ -44,10 +44,10 @@ async function start(obj) {
     if (!hFs.mkdir(monthDir)) return false
 
     const filePath = `${monthDir}/${dayTime}.md`
-    if (fs.existsSync(filePath)) return false
-
-    const mds = await genMD(obj)
-    hFs.saveFile(filePath,mds)
+    if (!fs.existsSync(filePath)) {
+        const mds = await genMD(obj)
+        hFs.saveFile(filePath,mds)
+    }
 
     const files = await readFilePath(fileDir)
     setSideBar(files)
@@ -87,8 +87,9 @@ async function genMD(obj) {
     result.push(`# 每日新闻 ${$.now().format('YYYY-MM-DD')}`)
     const bing = await getBing()
     result.push(`![](${bing.pic})`)
-    result.push(`> ${bing?.title?._cdata}`)
-
+    result.push(`> ${bing?.title?._cdata}  `)
+    result.push(' ')
+    result.push(`[历史上的今天](today-html/${$.now().format('MMDD')}.html)`)
     for (const source in obj) {
         result.push(`## ${commonName[source]?commonName[source]:source}`)
         obj[source].forEach((v,i) => {
