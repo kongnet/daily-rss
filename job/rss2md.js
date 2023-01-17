@@ -6,14 +6,14 @@ const fs = require("fs");
 const { siteUrlMap,commonName } = require('../config')
 const convert = require("xml-js");
 
-const docsifyPath = `../www/markdown/` // markdown文件输出文件夹
+const docsifyPath = path.join(__dirname, `../www/markdown/`) // markdown文件输出文件夹
 const docPath = `docs/` // markdown文件输出文件夹
 const sidebarPath = `${docsifyPath}_sidebar.md`
 const sidebarTemplatePath = `${docsifyPath}_sidebar_template.md`
 
 async function getBing() {
     const res = await fetchSite('https://rsshub.app/bing')
-    const rst = convert.xml2json(await res.text(), {
+    const rst = convert.xml2json(await res, {
         compact: true,
         spaces: 0
     })
@@ -49,7 +49,7 @@ async function start(obj) {
     const mds = await genMD(obj)
     hFs.saveFile(filePath,mds)
 
-    const files = await readFilePath(path.join(__dirname, fileDir))
+    const files = await readFilePath(fileDir)
     setSideBar(files)
 }
 
