@@ -2,9 +2,9 @@
 
 ### Intro 简介
 
-> 简易每日聚合 RSS 生成页面框架
-> Simple Daily Aggregation RSS Generated Page Framework
-> 跨服务器支持,全静态页面
+> 简易每日聚合 RSS 生成页面框架  
+> Simple Daily Aggregation RSS Generated Page Framework  
+> 跨服务器支持,全静态页面  
 > Cross-server support, fully static pages
 
 ### Install & Run 安装和运行
