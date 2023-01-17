@@ -53,6 +53,7 @@ async function start(obj) {
         hFs.saveFile(filePath,mds)
     }
 
+    await $.wait(1000)
     const files = await readFilePath(fileDir)
     setSideBar(files)
 }
@@ -67,6 +68,7 @@ function setSideBar(files) {
         const monStr = `${Math.floor(a/100)}-${a%100<10?'0'+a%100:a%100}`
         result.push(`- [${monStr}](docs/${monStr}/)`)
         let arr2 = Object.keys(files[a])
+        console.log(arr2)
         arr2.sort()
         arr2.reverse()
         arr2.forEach(v => {
