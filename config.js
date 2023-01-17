@@ -3,7 +3,6 @@ module.exports = {
     outputFile: 'rss-output.html'
   },
   siteUrlMap: {
-    'bing' : 'https://rsshub.app/bing',
     'odaily': 'https://rsshub.app/odaily/newsflash',
     'Hacker News': 'https://hnrss.org/newest.jsonfeed?points=100',
     V2EX: 'https://www.v2ex.com/index.xml',
@@ -12,5 +11,9 @@ module.exports = {
     Dribbble: 'https://rsshub.app/dribbble/popular/week',
     Github: 'https://rsshub.app/github/trending/daily/any/any',
     'AP News': 'https://rsshub.app/apnews/topics/ap-top-news'
+  },
+  commonName: {
+    'odaily' : '星球日报',
+    'blockbeats' : '律动'
   }
 }
