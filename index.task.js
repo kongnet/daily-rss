@@ -20,7 +20,7 @@ async function genMd() {
 async function startTask() {
     setInterval(() => {},1000)
 
-    schedule.scheduleJob('*/1 * * * * *', () => {
+    schedule.scheduleJob('*/1 *  * * * *', () => {
         timerCount += 1
         if (timerCount % h12 === 0) {
             genMd()

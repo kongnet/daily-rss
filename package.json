@@ -11,7 +11,10 @@
   "author": "Kongnet",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.2.2",
+    "axios-retry": "^3.3.1",
     "conventional-changelog": "^3.1.25",
+    "https-proxy-agent": "^5.0.1",
     "meeko": "^1.8.298",
     "node-schedule": "^2.1.1",
     "xml-js": "^1.6.11"

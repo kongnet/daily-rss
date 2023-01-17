@@ -6,7 +6,7 @@ const rsshubParse = async res => {
   })
   const items = JSON.parse(rst).rss.channel.item
   return items.map(x => {
-    return { title: x.title._cdata, link: x.link._text, desc: x.description }
+    return { title: x.title._cdata, link: x.link._text, desc: x.description._cdata }
   })
 }
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
   'Hacker News': async function (res) {
     const items = (await res.json()).items
     return items.map(x => {
-      return { title: x.title, link: x.url }
+      return { title: x.title, link: x.url, desc: x.content_html }
     })
   },
   V2EX: async function (res) {
@@ -24,7 +24,7 @@ module.exports = {
     })
     const items = JSON.parse(rst).feed.entry
     return items.map(x => {
-      return { title: x.title._text, link: x.link._attributes.href }
+      return { title: x.title._text, link: x.link._attributes.href, desc: x.content._cdata }
     })
   },
 

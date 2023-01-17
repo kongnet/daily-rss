@@ -20,15 +20,6 @@ async function parseFeed (res, source = 'v2ex') {
     return await parseAdapt[source](res)
 }
 
-function renderFeed (feedList, sourceName = 'v2ex', renderType = 'html') {
-    if (renderType === 'html') {
-        return renderHtml(feedList, sourceName)
-    }else if (renderType === 'markdown') {
-        return renderMarkdown(feedList, sourceName)
-    }
-    return ''
-}
-
 module.exports = {
     fetchSite,
     parseFeed
