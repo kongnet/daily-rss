@@ -1,11 +1,15 @@
 # Daily-RSS
 
-### Intro 简介
+### Introduction 简介
 
 > 简易每日聚合 RSS 生成页面框架  
 > Simple Daily Aggregation RSS Generated Page Framework  
 > 跨服务器支持,全静态页面  
 > Cross-server support, fully static pages
+
+### Read Online 现在阅读
+
+https://daily.skykong.xyz
 
 ### Install & Run 安装和运行
 
