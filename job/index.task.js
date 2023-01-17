@@ -1,6 +1,6 @@
 const schedule = require('node-schedule')
-const {siteUrlMap} = require("./config");
-const {rss2md} = require("./job/rss2md");
+const {siteUrlMap} = require("../config");
+const {rss2md} = require("../lib/rss2md");
 
 async function genMd() {
     try {

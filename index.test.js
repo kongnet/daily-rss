@@ -1,7 +1,7 @@
 const $ = require('meeko')
 
 const {siteUrlMap } = require('./config')
-const {rss2md} = require("./job/rss2md");
+const {rss2md} = require("./lib/rss2md");
 
 async function fetchSite (url) {
   return await fetch(url, {
