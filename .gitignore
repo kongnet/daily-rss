@@ -33,7 +33,7 @@ www/uploadfiles/
 www/swagger/jsons
 
 # tools/api2markdown.js 生成的文件
-www/markdown/apis
+www/markdown/docs
 www/markdown/_sidebar.md
 www/markdown/history.md
 
