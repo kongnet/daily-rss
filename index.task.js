@@ -16,7 +16,7 @@ async function genMd() {
 
 async function startTask() {
     setInterval(() => {},1000)
-    schedule.scheduleJob('47 47 8 * * *', function () {
+    schedule.scheduleJob('47 47 2 * * *', function () {
         genMd()
     })
 }
