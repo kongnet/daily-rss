@@ -5,10 +5,8 @@ const util = require("util");
 const fs = require("fs");
 const { siteUrlMap,commonName } = require('../config')
 const convert = require("xml-js");
-const re = require("meeko");
 
-//todo modify no copy
-const docsifyPath = `../www/markdown copy/` // markdown文件输出文件夹
+const docsifyPath = `../www/markdown/` // markdown文件输出文件夹
 const docPath = `docs/` // markdown文件输出文件夹
 const sidebarPath = `${docsifyPath}_sidebar.md`
 const sidebarTemplatePath = `${docsifyPath}_sidebar_template.md`
@@ -233,8 +231,7 @@ const hFs = {
 
 async function rss2md(rssList) {
     const obj = {}
-    for (const i of rssList) {
-        const sourceName = rssList[i]
+    for (const sourceName of rssList) {
         if (!siteUrlMap[sourceName]){
             console.error('invalid rss resource:',sourceName)
             continue

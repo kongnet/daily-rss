@@ -1,5 +1,4 @@
 const parseAdapt = require("./parseAdapt");
-const {siteUrlMap} = require("../config");
 
 async function fetchSite (url) {
     return await fetch(url, {
