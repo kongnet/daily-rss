@@ -1,6 +1,6 @@
 {
   "name": "daily-rss",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "./job/index.task.js",
   "scripts": {
