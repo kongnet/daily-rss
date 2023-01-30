@@ -49,6 +49,7 @@ const V2EXParser = async url => {
 }
 
 module.exports = {
+    fetchSite,
     rssParser,
     HackerNewsParser,
     V2EXParser
