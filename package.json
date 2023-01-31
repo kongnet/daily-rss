@@ -2,7 +2,7 @@
   "name": "daily-rss",
   "version": "1.0.13",
   "description": "",
-  "main": "./defaultSever/index.test.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "cz": "conventional-changelog -p atom -i CHANGELOG.md -s -r 0 && git add . && git status && git cz",
@@ -11,13 +11,13 @@
   "author": "Kongnet",
   "license": "MIT",
   "dependencies": {
-    "axios": "^1.2.2",
-    "axios-retry": "^3.3.1",
     "conventional-changelog": "^3.1.25",
-    "https-proxy-agent": "^5.0.1",
     "meeko": "^1.8.298",
     "node-schedule": "^2.1.1",
     "xml-js": "^1.6.11"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   },
   "devDependencies": {
     "cz-jt": "^0.1.11"
