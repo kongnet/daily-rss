@@ -16,13 +16,13 @@ https://daily.skykong.xyz
 ```
 - 0. nodejs 18.x.x & npm i -g pm2
 - 1. git clone https://github.com/kongnet/daily-rss.git
-- 2. pm2 start index
+- 2. node .
 ```
 
 ### Customization 定制化
 
-- 1. modify sitemap in config 修改 config.js 中的网站映射
-- 2. modify parse function in parseAdapy.js 修改 parseAdapy.js 中对应的网站解析代码 title,link,description
+- 1. modify rssFeeds in config 修改 config.js 中的网站映射
+- 2. modify parse function in parse.js 修改 parseAdapy.js 中对应的网站解析代码 title,link,description
 
 ### Step 实现步骤
 
