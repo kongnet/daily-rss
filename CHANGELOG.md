@@ -1,3 +1,12 @@
+## [1.0.15](https://github.com/kongnet/daily-rss/compare/v1.0.14...v1.0.15) (2023-07-13)
+
+
+### :bug:
+
+* 修改格式 ([d8e519e](https://github.com/kongnet/daily-rss/commit/d8e519ef878bf79007765b008b920c331ab36c6f))
+
+
+
 ## [1.0.14](https://github.com/kongnet/daily-rss/compare/v1.0.13...v1.0.14) (2023-01-31)
 
 
