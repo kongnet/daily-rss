@@ -11,22 +11,50 @@
 
 https://daily.skykong.xyz
 
-### Install & Run 安装和运行
+### Version Dependency 版本依赖
+
+nodejs version: >=18.x.x
+ 
+### Install 安装
 
 ```
-- 0. nodejs 18.x.x & npm i -g pm2
-- 1. git clone https://github.com/kongnet/daily-rss.git
-- 2. node .
+npm install daily-rss
 ```
 
-### Customization 定制化
+### Example 用例
 
-- 1. modify rssFeeds in config 修改 config.js 中的网站映射
-- 2. modify parse function in parse.js 修改 parseAdapy.js 中对应的网站解析代码 title,link,description
+```
+const rss = require('daily-rss')
+
+//modify config
+const config = {
+    'people' : 'http://www.people.com.cn/rss/politics.xml'
+}
+
+//modify adaptor, return the array of objects (title,link,description)
+const adaptor = {
+    'people': async res => {
+        const rst = rss.convert.xml2json(await res.text(), {
+            compact: true,
+            spaces: 0
+        })
+        const items = JSON.parse(rst).rss.channel.item
+        return items.map(x => {
+            return { title: x.title._cdata, link: x.link._text, desc: x.description._cdata }
+        })
+    }
+}
+
+async function main() {
+    rss.setConfig(config,adaptor)
+    const data = await rss.rss2json()
+    rss.rss2md(data)
+}
+```
 
 ### Step 实现步骤
 
-- 1. fetch RSS sitelist 获取待聚合网站列表
+- 1. set rss url and adaptor 配置rss源和对应的解析函数
 - 2. parse RSS data 解析 RSS 数据
 - 3. render 渲染(html md)
 - 4. crontab 设置定时任务
