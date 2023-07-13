@@ -2,8 +2,7 @@ const $ = require('meeko')
 
 const config = require('./config')
 const adaptor = require('./adaptor')
-const dailyRss = require("../index")
-
+const dailyRss = require('../index')
 
 async function main () {
   try {
