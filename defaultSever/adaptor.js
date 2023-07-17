@@ -15,7 +15,7 @@ const rssHubParser = async res => {
   return items.map(x => {
     return {
       title: x.title._cdata,
-      link: x.link._text,
+      link: x.link._text || x.link._cdata,
       desc: x.description._cdata
     }
   })
