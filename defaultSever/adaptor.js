@@ -8,6 +8,7 @@ const rssHubParser = async res => {
       spaces: 0
     })
   } catch (e) {
+    console.log(e)
     rst = '{}'
   }
 
@@ -51,5 +52,20 @@ module.exports = {
   ZNews: rssHubParser,
   Dribbble: rssHubParser,
   Github: rssHubParser,
-  'AP News': rssHubParser
+  'AP News': rssHubParser,
+  blockbeats: rssHubParser,
+  chainfeeds: async res => {
+    const rst = convert.xml2json(await res.text(), {
+      compact: true,
+      spaces: 0
+    })
+    const items = JSON.parse(rst).feed.entry
+    return items.map(x => {
+      return {
+        title: x.title._text,
+        link: x.link._attributes,
+        desc: x.summary._cdata
+      }
+    })
+  }
 }

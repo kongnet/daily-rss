@@ -37,7 +37,7 @@ www/markdown/docs
 www/markdown/_sidebar.md
 www/markdown/history.md
 
-www/img/*
+www/
 
 .scannerwork
 rss-output.html

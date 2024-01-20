@@ -1,3 +1,12 @@
+## [1.0.17](https://github.com/kongnet/daily-rss/compare/v1.0.16...v1.0.17) (2023-07-17)
+
+
+### :bug:
+
+* 兼容title的_text _cadta ([346b676](https://github.com/kongnet/daily-rss/commit/346b676224a5c9500a575326f2f830857ad18623))
+
+
+
 ## [1.0.16](https://github.com/kongnet/daily-rss/compare/v1.0.15...v1.0.16) (2023-07-13)
 
 

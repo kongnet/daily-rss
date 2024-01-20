@@ -9,13 +9,13 @@ async function main () {
     dailyRss.setConfig(config.rssFeedsDefault, adaptor)
     const data = await dailyRss.rss2json()
     await dailyRss.rss2md(data)
-    await dailyRss.rss2html(data)
   } catch (e) {
-    console.log(e)
+    console.log(e.message)
   }
 }
 
 main()
+
 /*
 1.fetch rss list
 2.parseFeed 
