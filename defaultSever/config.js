@@ -11,8 +11,8 @@ module.exports = {
     Solidot: 'https://rsshub.app/solidot/linux',
     ZNews: 'https://rsshub.app/zaobao/znews/china',
     Dribbble: 'https://rsshub.app/dribbble/popular/week',
-    Github: 'https://rsshub.app/github/trending/daily/any/any'
-    //'AP News': 'https://rsshub.app/apnews/topics/ap-top-news'
+    Github: 'https://rsshub.app/github/trending/daily/any/any',
+    'AP News': 'https://rsshub.app/apnews/topics/ap-top-news'
   },
   commonName: {
     odaily: '星球日报',

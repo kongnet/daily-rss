@@ -13,11 +13,12 @@ const rssHubParser = async res => {
   }
 
   const items = JSON.parse(rst)?.rss?.channel?.item || []
+
   return items.map(x => {
     return {
-      title: x.title._cdata,
+      title: x.title._text || x.title._cdata,
       link: x.link._text || x.link._cdata,
-      desc: x.description._cdata
+      desc: x.description._text || x.description._cdata
     }
   })
 }
@@ -30,11 +31,17 @@ const HackerNewsParser = async res => {
 }
 
 const V2EXParser = async res => {
-  const rst = convert.xml2json(await res.text(), {
-    compact: true,
-    spaces: 0
-  })
-  const items = JSON.parse(rst).feed.entry
+  let rst
+  try {
+    rst = convert.xml2json(await res.text(), {
+      compact: true,
+      spaces: 0
+    })
+  } catch (e) {
+    console.log(e)
+    rst = '{}'
+  }
+  const items = JSON.parse(rst)?.feed?.entry || []
   return items.map(x => {
     return {
       title: x.title._text,

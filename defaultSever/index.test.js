@@ -6,8 +6,9 @@ const dailyRss = require('../index')
 
 async function main () {
   try {
-    dailyRss.setConfig(config.rssFeedsDefault, adaptor)
+    dailyRss.setConfig(config.siteUrlMap, adaptor)
     const data = await dailyRss.rss2json()
+    // console.log(data.Github.data[0])
     await dailyRss.rss2md(data)
   } catch (e) {
     console.log(e.message)
