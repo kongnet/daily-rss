@@ -12,8 +12,10 @@ const rssHubParser = async res => {
     rst = '{}'
   }
 
-  const items = JSON.parse(rst)?.rss?.channel?.item || []
-
+  let items = JSON.parse(rst)?.rss?.channel?.item || []
+  if (!(items instanceof Array)) {
+    items = [items]
+  }
   return items.map(x => {
     return {
       title: x.title._text || x.title._cdata,
@@ -68,9 +70,10 @@ module.exports = {
     })
     const items = JSON.parse(rst).feed.entry
     return items.map(x => {
+      console.log(x.link)
       return {
         title: x.title._text,
-        link: x.link._attributes,
+        link: x.link?._attributes?.href,
         desc: x.summary._cdata
       }
     })

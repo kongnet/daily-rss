@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "conventional-changelog": "^3.1.25",
-    "meeko": "^1.8.298",
+    "meeko": "^1.8.330",
     "node-schedule": "^2.1.1",
     "xml-js": "^1.6.11"
   },
