@@ -17,10 +17,11 @@ const rssHubParser = async res => {
     items = [items]
   }
   return items.map(x => {
+    console.log(x['content:encoded']._cdata)
     return {
-      title: x.title._text || x.title._cdata,
-      link: x.link._text || x.link._cdata,
-      desc: x.description._text || x.description._cdata
+      title: x.title?._text || x.title?._cdata || '',
+      link: x.link?._text || x.link?._cdata || '',
+      desc: x.description?._text || x.description?._cdata || ''
     }
   })
 }

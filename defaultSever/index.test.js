@@ -11,7 +11,7 @@ async function main () {
     // console.log(data.Github.data[0])
     await dailyRss.rss2md(data)
   } catch (e) {
-    console.log(e.message)
+    console.log(e)
   }
 }
 
