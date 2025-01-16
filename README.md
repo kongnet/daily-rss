@@ -9,7 +9,7 @@
 
 ### Read Online 现在阅读
 
-https://daily.skykong.xyz
+https://news.nftmeta.vip/#/
 
 ### Version Dependency 版本依赖
 
