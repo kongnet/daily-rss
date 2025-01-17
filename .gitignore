@@ -7,6 +7,7 @@ yarn-error.log*
 test/unit/coverage/
 cheerio/
 test??.js
+package-lock.json
 # Editor directories and files
 .idea
 .vscode
