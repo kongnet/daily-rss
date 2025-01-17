@@ -1,3 +1,8 @@
+## [1.0.21](https://github.com/kongnet/daily-rss/compare/v1.0.20...v1.0.21) (2025-01-16)
+
+
+
+
 ## [1.0.20](https://github.com/kongnet/daily-rss/compare/v1.0.19...v1.0.20) (2024-10-09)
 
 

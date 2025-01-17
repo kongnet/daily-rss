@@ -17,11 +17,16 @@ const rssHubParser = async res => {
     items = [items]
   }
   return items.map(x => {
-    console.log(x['content:encoded']._cdata)
+    // console.log(x)
+    // console.log(x['content:encoded']._cdata)
     return {
       title: x.title?._text || x.title?._cdata || '',
       link: x.link?._text || x.link?._cdata || '',
-      desc: x.description?._text || x.description?._cdata || ''
+      desc:
+        x.description?._text ||
+        x.description?._cdata ||
+        x['content:encoded']?._cdata ||
+        ''
     }
   })
 }
@@ -71,7 +76,7 @@ module.exports = {
     })
     const items = JSON.parse(rst).feed.entry
     return items.map(x => {
-      console.log(x.link)
+      // console.log(x.link)
       return {
         title: x.title._text,
         link: x.link?._attributes?.href,
