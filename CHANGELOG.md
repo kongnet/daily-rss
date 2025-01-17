@@ -1,3 +1,12 @@
+## [1.0.22](https://github.com/kongnet/daily-rss/compare/v1.0.21...v1.0.22) (2025-01-17)
+
+
+### :sparkles:
+
+* 修改默认服务器行为 ([350a056](https://github.com/kongnet/daily-rss/commit/350a0562059b943fc780eda3c3ed7857a9dc19c5))
+
+
+
 ## [1.0.21](https://github.com/kongnet/daily-rss/compare/v1.0.20...v1.0.21) (2025-01-16)
 
 
